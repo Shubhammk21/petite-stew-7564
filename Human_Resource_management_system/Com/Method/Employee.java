@@ -1,5 +1,4 @@
 package Com.Method;
-
 //import javax.management.loading.PrivateClassLoader;
 
 public class Employee {
@@ -20,7 +19,7 @@ public class Employee {
 	public Employee() {
 		super();
 	}
-
+  
 	public Employee(int id, String name, int age, String email, String address, long number, int salary, String dname,
 			String username, String password, String workingStatus, String leaveRequest, String joiningDate) {
 		super();
@@ -175,6 +174,4 @@ public class Employee {
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
 }
