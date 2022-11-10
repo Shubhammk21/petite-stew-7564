@@ -1,6 +1,5 @@
 package Com.Method;
-
-import javax.management.loading.PrivateClassLoader;
+//import javax.management.loading.PrivateClassLoader;
 
 public class Employee {
 	private int id;
@@ -10,20 +9,19 @@ public class Employee {
 	private String address;
 	private long number;
 	private int salary;
-	private Department dname;
+	private String dname;
 	private String username;
 	private String password;
-	private boolean workingStatus;
-	private Leave leaveRequest;
+	private String workingStatus;
+	private String leaveRequest;
 	private String joiningDate;
 	
 	public Employee() {
 		super();
 	}
-
-	public Employee(int id, String name, int age, String email, String address, long number, int salary,
-			Department dname, String username, String password, boolean workingStatus, Leave leaveRequest,
-			String joiningDate) {
+  
+	public Employee(int id, String name, int age, String email, String address, long number, int salary, String dname,
+			String username, String password, String workingStatus, String leaveRequest, String joiningDate) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -96,11 +94,11 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public Department getDname() {
+	public String getDname() {
 		return dname;
 	}
 
-	public void setDname(Department dname) {
+	public void setDname(String dname) {
 		this.dname = dname;
 	}
 
@@ -120,19 +118,19 @@ public class Employee {
 		this.password = password;
 	}
 
-	public boolean isWorkingStatus() {
+	public String getWorkingStatus() {
 		return workingStatus;
 	}
 
-	public void setWorkingStatus(boolean workingStatus) {
+	public void setWorkingStatus(String workingStatus) {
 		this.workingStatus = workingStatus;
 	}
 
-	public Leave getLeaveRequest() {
+	public String getLeaveRequest() {
 		return leaveRequest;
 	}
 
-	public void setLeaveRequest(Leave leaveRequest) {
+	public void setLeaveRequest(String leaveRequest) {
 		this.leaveRequest = leaveRequest;
 	}
 
@@ -176,7 +174,4 @@ public class Employee {
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
-	
 }
