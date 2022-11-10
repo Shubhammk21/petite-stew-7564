@@ -9,7 +9,7 @@ public class Employee {
 	private String address;
 	private long number;
 	private int salary;
-	private String dname;
+	private int dname;
 	private String username;
 	private String password;
 	private String workingStatus;
@@ -20,7 +20,7 @@ public class Employee {
 		super();
 	}
   
-	public Employee(int id, String name, int age, String email, String address, long number, int salary, String dname,
+	public Employee(int id, String name, int age, String email, String address, long number, int salary, int dname,
 			String username, String password, String workingStatus, String leaveRequest, String joiningDate) {
 		super();
 		this.id = id;
@@ -94,11 +94,11 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public String getDname() {
+	public int getDname() {
 		return dname;
 	}
 
-	public void setDname(String dname) {
+	public void setDname(int dname) {
 		this.dname = dname;
 	}
 
