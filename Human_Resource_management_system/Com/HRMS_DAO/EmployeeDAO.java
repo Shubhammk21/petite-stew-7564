@@ -22,13 +22,13 @@ public class EmployeeDAO implements IntEmployeeDAO{
 		
 		try (Connection conn = DBUtil.provideConn()){
 			
-			PreparedStatement pr = conn.prepareStatement("Select from Employee Where username=? and password=?");
+			PreparedStatement pr = conn.prepareStatement("Select * from Employes Where username=? and password=?");
 			pr.setString(1,username);
 			pr.setString(2, password);
 			ResultSet rs=pr.executeQuery();
 			
 			if(rs.next()) {
-				int id = rs.getInt("EmployeeId");
+				int id = rs.getInt("EmployesId");
 				String name = rs.getString("name");
 				int age = rs.getInt("age");
 				String email = rs.getString("Email");
@@ -38,7 +38,7 @@ public class EmployeeDAO implements IntEmployeeDAO{
 				int did = rs.getInt("departmentid");
 				String user = rs.getString("username");
 				String pass = rs.getString("password");
-				String workingStatus = rs.getString("workingStatus");
+				String workingStatus = rs.getString("working_Status");
 				String leaveRequest = rs.getString("leave_request");
 				String joiningDate = rs.getString("joining_date");
 				
@@ -111,19 +111,20 @@ public class EmployeeDAO implements IntEmployeeDAO{
 		
 		try(Connection conn=DBUtil.provideConn()){
 			
-			PreparedStatement pr = conn.prepareStatement("insert into leaves value(?,?,?,?,?,?,?)");
+			PreparedStatement pr = conn.prepareStatement("insert into leaves value(?,?,?,?,?,Addate(startdate,duration),?)");
 			pr.setInt(1,leave.getId());
 			pr.setString(2,leave.getName());
 			pr.setInt(3,leave.getDepartmentId());
 			pr.setInt(4,leave.getDuration());
 			pr.setString(5,leave.getStartDate());
-			pr.setString(6,leave.getEndDate());
-			pr.setString(7,"Pending");
+			//pr.setString(6,(leave.getStartDate()));
+			pr.setString(6,"Pending");
 			int x = pr.executeUpdate();
 			
 			if(x>0) {
 				
-				PreparedStatement pr2 = conn.prepareStatement("Update Employes set leave_request=Pending");
+				PreparedStatement pr2 = conn.prepareStatement("Update Employes inner join leaves on leaves.leave_request=employes.leave_request where employesid=?");
+				pr2.setInt(1,leave.getId());
 				pr2.executeUpdate();
 				massage="Request Generated please wait for conformation";
 			}

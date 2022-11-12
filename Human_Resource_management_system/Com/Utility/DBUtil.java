@@ -9,12 +9,12 @@ public class DBUtil {
 		Connection conn=null;
 		
 		try {
-			Class.forName("mySql.cj.jdcb.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
-		String url="jdbc:mysql://localhost:3306/";
+		String url="jdbc:mysql://localhost:3306/Unit_5_HRMS";
 		
 		try {
 			conn=DriverManager.getConnection(url, "root", "Mp21mk6293");
