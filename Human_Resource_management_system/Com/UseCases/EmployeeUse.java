@@ -28,10 +28,12 @@ public class EmployeeUse {
 			System.out.println("Enter 3 to Generate Leave request");
 			System.out.println("Enter 4 to exit");
 			int x=Integer.parseInt(in.readLine());
+			System.out.println("=============================================");
 			
 			switch(x) {
 				case 1:
 					System.out.println(employee.toString());
+					System.out.println("=============================================");
 					break;
 	
 				case 2:
@@ -42,6 +44,7 @@ public class EmployeeUse {
 					System.out.println("Enter new password");
 					String case2newpass = in.readLine();
 					System.out.println(mm.updatepass(case2newpass, case2username, case2password));
+					System.out.println("=============================================");
 					break;
 					
 				case 3:
@@ -61,6 +64,7 @@ public class EmployeeUse {
 					lev.setStartDate(startDate);
 					//mm.updateLevCol(empid);
 					System.out.println(mm.leaveReq(lev));
+					System.out.println("=============================================");
 					break;
 					
 				case 4:
@@ -70,6 +74,7 @@ public class EmployeeUse {
 					
 				default :
 					System.out.println("something wrong try again");
+					System.out.println("=============================================");
 					break;
 					
 			}

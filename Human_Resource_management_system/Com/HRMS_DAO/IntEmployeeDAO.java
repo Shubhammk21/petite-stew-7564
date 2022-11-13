@@ -12,4 +12,5 @@ public interface IntEmployeeDAO {
 	public String updatepass(String newpassword,String username,String password)throws EmployeNotFound;
 	public String leaveReq(Leave leave) throws EmployeNotFound;
 	//public void updateLevCol(int id) throws EmployeNotFound;
+	
 }
