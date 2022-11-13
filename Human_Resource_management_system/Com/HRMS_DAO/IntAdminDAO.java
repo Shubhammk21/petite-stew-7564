@@ -2,11 +2,14 @@ package Com.HRMS_DAO;
 
 import java.util.List;
 
+import Com.Exceptions.AdminException;
 import Com.Method.Department;
 import Com.Method.Employee;
 import Com.Method.Leave;
 
 public interface IntAdminDAO {
+	
+	public String AdimnLogIn(String username,String password)throws AdminException;
 	public String insertEmpl(Employee employee);
 	public String updateDepart(String depart, int dID, String value);
 	public String insertDepart(Department depart);

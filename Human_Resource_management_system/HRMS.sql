@@ -8,9 +8,15 @@ create table department(
     location varchar(60)
 );
 
-create table leaves(
+create table Admin(
+    id int primary key auto_increment unique,
+    name varchar(30),
+    post varchar(30),
+    username varchar(30) not null,
+    password varchar(30) not null
+);
 
-)
+insert into admin(name,post,username,password) values('Shubham singh','CEO','shubham','mp21mk');
 
 create table Employes(
     EmployesId int Primary key auto_increment,

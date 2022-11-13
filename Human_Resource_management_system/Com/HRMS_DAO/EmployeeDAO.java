@@ -111,7 +111,7 @@ public class EmployeeDAO implements IntEmployeeDAO{
 		
 		try(Connection conn=DBUtil.provideConn()){
 			
-			PreparedStatement pr = conn.prepareStatement("insert into leaves value(?,?,?,?,?,Addate(startdate,duration),?)");
+			PreparedStatement pr = conn.prepareStatement("insert into leaves value(?,?,?,?,?,Adddate(startdate,duration),?)");
 			pr.setInt(1,leave.getId());
 			pr.setString(2,leave.getName());
 			pr.setInt(3,leave.getDepartmentId());
@@ -123,7 +123,7 @@ public class EmployeeDAO implements IntEmployeeDAO{
 			
 			if(x>0) {
 				
-				PreparedStatement pr2 = conn.prepareStatement("Update Employes inner join leaves on leaves.leave_request=employes.leave_request where employesid=?");
+				PreparedStatement pr2 = conn.prepareStatement("update employes inner join leaves on employes.employesid=leaves.employesid set employes.leave_request='pending',leaves.leave_request='pending' where employes.employesid=?");
 				pr2.setInt(1,leave.getId());
 				pr2.executeUpdate();
 				massage="Request Generated please wait for conformation";

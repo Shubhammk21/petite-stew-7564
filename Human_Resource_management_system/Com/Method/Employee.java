@@ -9,7 +9,7 @@ public class Employee {
 	private String address;
 	private long number;
 	private int salary;
-	private int dname;
+	private int dID;
 	private String username;
 	private String password;
 	private String workingStatus;
@@ -30,7 +30,7 @@ public class Employee {
 		this.address = address;
 		this.number = number;
 		this.salary = salary;
-		this.dname = dname;
+		this.dID = dname;
 		this.username = username;
 		this.password = password;
 		this.workingStatus = workingStatus;
@@ -94,12 +94,12 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public int getDname() {
-		return dname;
+	public int getdID() {
+		return dID;
 	}
 
-	public void setDname(int dname) {
-		this.dname = dname;
+	public void setdID(int dname) {
+		this.dID = dname;
 	}
 
 	public String getUsername() {
@@ -160,7 +160,7 @@ public class Employee {
 		builder.append(", salary=");
 		builder.append(salary);
 		builder.append(", dname=");
-		builder.append(dname);
+		builder.append(dID);
 		builder.append(", username=");
 		builder.append(username);
 		builder.append(", password=");
