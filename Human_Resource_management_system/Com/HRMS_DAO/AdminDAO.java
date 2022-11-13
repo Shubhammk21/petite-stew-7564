@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Com.Exceptions.AdminException;
+import Com.Method.Admin;
 import Com.Method.Department;
 import Com.Method.Employee;
 import Com.Method.Leave;
@@ -27,7 +29,7 @@ public class AdminDAO implements IntAdminDAO {
 			pr.setString(4, employee.getAddress());
 			pr.setLong(5, employee.getNumber());
 			pr.setInt(6, employee.getSalary());
-			pr.setInt(7, employee.getDname());
+			pr.setInt(7, employee.getdID());
 			pr.setString(8, employee.getUsername());
 			pr.setString(9, employee.getPassword());
 			pr.setString(10, employee.getWorkingStatus());
@@ -151,7 +153,7 @@ public class AdminDAO implements IntAdminDAO {
 				while(rs.next()) {
 				
 					int id = rs.getInt("Employesid");
-					String name = rs.getString(1, em);
+					String name = rs.getString("name");
 					int age = rs.getInt("age");
 					String email = rs.getString("email");
 					String address = rs.getString("address");
@@ -172,21 +174,16 @@ public class AdminDAO implements IntAdminDAO {
 				while(rs.next()) {
 					
 					int id = rs.getInt("Employesid");
-					String name = rs.getString(1, em);
-					int age = rs.getInt("age");
-					String email = rs.getString("email");
-					String address = rs.getString("address");
-					long phone = rs.getLong("Phone_number");
-					int salary = rs.getInt("salary");
+					String name = rs.getString("name");
 					int did = rs.getInt("departmentid");
-					String user = rs.getString("username");
-					String pass = rs.getString("password");
-					String wstatus = rs.getString("working_status");
+					int dura = rs.getInt("duration");
+					String start = rs.getString("startdate");
+					String wstatus = rs.getString("enddate");
 					String lreq = rs.getString("leave_request");
-					String jdate = rs.getString("joining_date");
-					arr.add(new Employee(id,name,age,email,address,phone,salary,
-							did,user,pass,wstatus,lreq,jdate));
+					arr2.add(new Leave(id,name,
+							did,dura,start,wstatus,lreq));
 				}
+				return arr2;
 			}
 			
 		}catch(SQLException e) {
@@ -194,6 +191,35 @@ public class AdminDAO implements IntAdminDAO {
 		}
 		
 		return arr;
+	}
+
+	@Override
+	public String AdimnLogIn(String username, String password) throws AdminException {
+		String massage = "Incorrect Username or Password try again";
+		//Admin admin=n
+		
+		try (Connection conn = DBUtil.provideConn()){
+
+			PreparedStatement pr = conn.prepareStatement("Select * from admin Where username=? and password=?");
+			pr.setString(1,username);
+			pr.setString(2, password);
+			ResultSet x = pr.executeQuery();
+			
+			if(x.next()) {
+				String name = x.getString("name");
+				String post = x.getString("post");
+				massage = "Welcome Sir "+name+" "+post;
+			}
+			else {
+				throw new AdminException("Incorrect Username or Password try again");
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+			throw new AdminException(e.getMessage());
+		}
+		
+		return massage;
 	}
 
 }

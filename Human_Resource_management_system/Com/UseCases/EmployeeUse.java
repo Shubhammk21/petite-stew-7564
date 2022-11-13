@@ -45,27 +45,31 @@ public class EmployeeUse {
 					break;
 					
 				case 3:
-					int empid = employee.getAge();
+					int empid = employee.getId();
 					String name = employee.getName();
-					int departmentId = employee.getDname();
+					int departmentId = employee.getdID();
 					System.out.println("Enter Days");
 					int duration = Integer.parseInt(in.readLine());
 					System.out.println("Enter start date in the format of yyyy-mm-dd");
 					String startDate = in.readLine();
-					String leaveReq="Pending";
+					//String leaveReq="Pending";
 					Leave lev=new Leave();
 					lev.setId(empid);
 					lev.setName(name);
 					lev.setDepartmentId(departmentId);
 					lev.setDuration(duration);
 					lev.setStartDate(startDate);
-					
+					//mm.updateLevCol(empid);
 					System.out.println(mm.leaveReq(lev));
 					break;
 					
 				case 4:
-					System.out.println("something wrong try again");
+					System.out.println("Thank You");
 					flag=false;
+					break;
+					
+				default :
+					System.out.println("something wrong try again");
 					break;
 					
 			}
