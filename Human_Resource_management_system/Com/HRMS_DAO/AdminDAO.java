@@ -54,10 +54,10 @@ public class AdminDAO implements IntAdminDAO {
 		String massage="Update data falied";
 		
 		try (Connection conn = DBUtil.provideConn()){
-			PreparedStatement pr = conn.prepareStatement("update department set ? = ? where DepartmentId = ?");
-			pr.setString(1,depart);
-			pr.setString(2, value);
-			pr.setInt(3, dId);
+			PreparedStatement pr = conn.prepareStatement("update department set "+ depart+"=? where departmentId = ?");
+			//pr.setString(1,depart);
+			pr.setString(1, value);
+			pr.setInt(2, dId);
 			
 			int x = pr.executeUpdate();
 			if(x>0) {
@@ -98,9 +98,9 @@ public class AdminDAO implements IntAdminDAO {
 		
 		try (Connection conn = DBUtil.provideConn()){
 			PreparedStatement pr = conn.prepareStatement("update Employes set departmentId=? where employesid=?");
-			
-			pr.setInt(1, id);
-			pr.setInt(2, newDId);
+		
+			pr.setInt(1, newDId);
+			pr.setInt(2, id);
 			
 			int x = pr.executeUpdate();
 			if(x>0) {
@@ -137,21 +137,24 @@ public class AdminDAO implements IntAdminDAO {
 	}
 
 	@Override
-	public List appliedLeaveList(String table,String asen, String colum) {
+	public List appliedLeaveList(String table,String asen, String colum) throws AdminException {
 		List<Employee> arr = new ArrayList<>();
 		List<Leave> arr2 = new ArrayList<>();
 		
 		try (Connection conn = DBUtil.provideConn()){
-			PreparedStatement pr = conn.prepareStatement("Select * from ? order by ? ?");
-			pr.setString(1, table);
-			pr.setString(2, asen);
-			pr.setString(3, colum);
+			PreparedStatement pr = conn.prepareStatement("Select * from "+table+" order by "+colum+" "+asen);
+//			pr.setString(1, table);
+//			pr.setString(2, asen);
+//			pr.setString(3, colum);
 			
 			ResultSet rs = pr.executeQuery();
 			
 			if(table=="employes") {
-				while(rs.next()) {
+				boolean flag = true;
 				
+				while(rs.next()) {
+					flag = false;
+		
 					int id = rs.getInt("Employesid");
 					String name = rs.getString("name");
 					int age = rs.getInt("age");
@@ -168,10 +171,17 @@ public class AdminDAO implements IntAdminDAO {
 					arr.add(new Employee(id,name,age,email,address,phone,salary,
 							did,user,pass,wstatus,lreq,jdate));
 				}
+				if(flag) {
+					throw new AdminException("No Data there");
+				}
+				
 				return arr;
 			}
-			else if(table=="leaves") {
+			else if(table=="Leaves") {
+				boolean flag = true;
+				
 				while(rs.next()) {
+					flag = false;
 					
 					int id = rs.getInt("Employesid");
 					String name = rs.getString("name");
@@ -183,11 +193,18 @@ public class AdminDAO implements IntAdminDAO {
 					arr2.add(new Leave(id,name,
 							did,dura,start,wstatus,lreq));
 				}
+				
+				if(flag) {
+					throw new AdminException("No Data there");
+				}
+				
+				//System.out.println("arr2");
 				return arr2;
 			}
 			
 		}catch(SQLException e) {
 			e.printStackTrace();
+			throw new AdminException(e.getMessage());
 		}
 		
 		return arr;
@@ -222,4 +239,63 @@ public class AdminDAO implements IntAdminDAO {
 		return massage;
 	}
 
+	@Override
+	public String updatepass(String newpassword, String username, String password) throws AdminException {
+		
+		String massage="Please something wrong please try again";
+		
+		try(Connection conn=DBUtil.provideConn()){
+			
+			PreparedStatement pr = conn.prepareStatement("Update Admin set Password=? where username=? and password=? and password != ?");
+			pr.setString(1, newpassword);
+			pr.setString(2, username);
+			pr.setString(3, password);
+			pr.setString(4, newpassword);
+			
+			int x = pr.executeUpdate();
+			
+			if(x>0) {
+				massage="Password Changes";
+			}
+			else {
+				throw new AdminException("Invaild");
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+			throw new AdminException(e.getMessage());
+		}
+		
+		
+		return massage;
+	}
+
+	@Override
+	public String addAdmin(Admin admin) throws AdminException {
+		String massage = "Something wrong try again";
+		
+		try(Connection conn=DBUtil.provideConn()){
+			
+			PreparedStatement pr = conn.prepareStatement("Insert into Admin(name,post,username,password) values (?,?,?,?)");
+			pr.setString(1, admin.getName());
+			pr.setString(2, admin.getPost());
+			pr.setString(3, admin.getUsername());
+			pr.setString(4, admin.getPassword());
+			
+			int x = pr.executeUpdate();
+			
+			if(x>0) {
+				massage="New Admin Added Suscessfully";
+			}
+			else {
+				throw new AdminException("Invaild");
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+			throw new AdminException(e.getMessage());
+		}
+		
+		
+		return massage;
+	}
+	
 }
