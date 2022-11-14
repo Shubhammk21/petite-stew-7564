@@ -54,7 +54,7 @@ public class Adminuses {
 						
 						for(int i=1; i<=n; i++) {
 							Employee e = new Employee();
-							System.out.println("Employee Number: "+1);
+							System.out.println("Employee Number: "+i);
 							
 							System.out.println("Enter Name of Employee");
 							String name = in.readLine();
@@ -113,7 +113,7 @@ public class Adminuses {
 							
 							if(confirm == 1) {
 								System.out.println(admin.insertEmpl(e));
-							}else {
+							}else if(confirm==2){
 								i=i-1;
 							}
 							System.out.println("=============================================");
@@ -261,7 +261,7 @@ public class Adminuses {
 						String c6order = "asc";
 						String c6colum = "name";
 						
-						List<Leave> arr2 = new ArrayList<>();
+						List<Employee> arr2 = new ArrayList<>();
 						
 						if(c6n==1) {
 							

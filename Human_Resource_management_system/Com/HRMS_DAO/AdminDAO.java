@@ -149,7 +149,7 @@ public class AdminDAO implements IntAdminDAO {
 			
 			ResultSet rs = pr.executeQuery();
 			
-			if(table=="employes") {
+			if(table=="Employes") {
 				boolean flag = true;
 				
 				while(rs.next()) {
