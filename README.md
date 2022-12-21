@@ -26,7 +26,7 @@ Dependencies
  You must have Java JDK 1.8 or microsoft MySQL connector for database.
 
     1. mysql-connector-java-5.1.39-bin.jar
-    2. JDK 1.8
+    2. JDK 17
 
 Built with
 -------------------------------
