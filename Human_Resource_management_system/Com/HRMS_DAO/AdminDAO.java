@@ -17,12 +17,14 @@ import Com.Utility.DBUtil;
 public class AdminDAO implements IntAdminDAO {
 
 	@Override
-	public String insertEmpl(Employee employee) {
+	public String insertEmpl(Employee employee) throws AdminException {
 		String massage = "Insert Employes unsuscessful";
 		
 		try (Connection conn = DBUtil.provideConn()){
-			PreparedStatement pr = conn.prepareStatement("insert into Employes(name, age, email, address, Phone_number, salary, departmentid, username, password, working_status, leave_request, joining_date) "
+			PreparedStatement pr = conn.prepareStatement("insert into Employes(name, age, email, address, "
+					+ "Phone_number, salary, departmentid, username, password, working_status, leave_request, joining_date) "
 					+ "value(?,?,?,?,?,?,?,?,?,?,?,?)");
+			
 			pr.setString(1, employee.getName());
 			pr.setInt(2, employee.getAge());
 			pr.setString(3, employee.getEmail());
@@ -38,11 +40,11 @@ public class AdminDAO implements IntAdminDAO {
 	
 			int x = pr.executeUpdate();
 			if(x>0) {
-				massage="Insert Suscessfull";
+				massage="Insert Suscessfull"+'\n'+employee.toString();
 			}
 			
 		}catch(SQLException e) {
-			e.printStackTrace();
+			throw new AdminException(e.getMessage());
 		}
 		
 		
@@ -50,7 +52,7 @@ public class AdminDAO implements IntAdminDAO {
 	}
 
 	@Override
-	public String updateDepart(String depart, int dId, String value) {
+	public String updateDepart(String depart, int dId, String value) throws AdminException {
 		String massage="Update data falied";
 		
 		try (Connection conn = DBUtil.provideConn()){
@@ -63,15 +65,17 @@ public class AdminDAO implements IntAdminDAO {
 			if(x>0) {
 				massage="Update Suscessfull";
 			}
-			
+			else {
+				throw new AdminException("Update data falied");
+			}
 		}catch(SQLException e) {
-			e.printStackTrace();
+			throw new AdminException(e.getMessage());
 		}
 		return massage;
 	}
 
 	@Override
-	public String insertDepart(Department depart) {
+	public String insertDepart(Department depart) throws AdminException {
 		String massage = "Insert in Department fail";
 
 		try (Connection conn = DBUtil.provideConn()){
@@ -86,14 +90,14 @@ public class AdminDAO implements IntAdminDAO {
 			}
 			
 		}catch(SQLException e) {
-			e.printStackTrace();
+			throw new AdminException(e.getMessage());
 		}
 		
 		return massage;
 	}
 
 	@Override
-	public String transDapart(int id, int newDId) {
+	public String transDapart(int id, int newDId) throws AdminException {
 		String massage = "Something Wrong try again";
 		
 		try (Connection conn = DBUtil.provideConn()){
@@ -108,14 +112,14 @@ public class AdminDAO implements IntAdminDAO {
 			}
 			
 		}catch(SQLException e) {
-			e.printStackTrace();
+			throw new AdminException(e.getMessage());
 		}
 		
 		return massage;
 	}
 
 	@Override
-	public String leaveReq(int id, String ans) {
+	public String leaveReq(int id, String ans) throws AdminException {
 		String massage = "Something wrong try again";
 		try (Connection conn = DBUtil.provideConn()){
 			PreparedStatement pr = conn.prepareStatement("update employes inner join leaves on employes.employesid=leaves.employesid "
@@ -130,7 +134,7 @@ public class AdminDAO implements IntAdminDAO {
 			}
 			
 		}catch(SQLException e) {
-			e.printStackTrace();
+			throw new AdminException(e.getMessage());
 		}
 		
 		return massage;
@@ -143,9 +147,6 @@ public class AdminDAO implements IntAdminDAO {
 		
 		try (Connection conn = DBUtil.provideConn()){
 			PreparedStatement pr = conn.prepareStatement("Select * from "+table+" order by "+colum+" "+asen);
-//			pr.setString(1, table);
-//			pr.setString(2, asen);
-//			pr.setString(3, colum);
 			
 			ResultSet rs = pr.executeQuery();
 			
@@ -203,7 +204,6 @@ public class AdminDAO implements IntAdminDAO {
 			}
 			
 		}catch(SQLException e) {
-			e.printStackTrace();
 			throw new AdminException(e.getMessage());
 		}
 		
@@ -213,7 +213,6 @@ public class AdminDAO implements IntAdminDAO {
 	@Override
 	public String AdimnLogIn(String username, String password) throws AdminException {
 		String massage = "Incorrect Username or Password try again";
-		//Admin admin=n
 		
 		try (Connection conn = DBUtil.provideConn()){
 
@@ -224,15 +223,13 @@ public class AdminDAO implements IntAdminDAO {
 			
 			if(x.next()) {
 				String name = x.getString("name");
-				String post = x.getString("post");
-				massage = "Welcome Sir "+name+" "+post;
+				massage = "Welcome Sir "+name+"☻";
 			}
 			else {
 				throw new AdminException("Incorrect Username or Password try again");
 			}
 			
 		}catch(SQLException e) {
-			e.printStackTrace();
 			throw new AdminException(e.getMessage());
 		}
 		
@@ -261,7 +258,6 @@ public class AdminDAO implements IntAdminDAO {
 				throw new AdminException("Invaild");
 			}
 		}catch(SQLException e) {
-			e.printStackTrace();
 			throw new AdminException(e.getMessage());
 		}
 		
@@ -290,7 +286,6 @@ public class AdminDAO implements IntAdminDAO {
 				throw new AdminException("Invaild");
 			}
 		}catch(SQLException e) {
-			e.printStackTrace();
 			throw new AdminException(e.getMessage());
 		}
 		
