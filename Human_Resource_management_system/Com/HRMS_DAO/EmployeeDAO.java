@@ -94,10 +94,9 @@ public class EmployeeDAO implements IntEmployeeDAO{
 				massage="Password Changes";
 			}
 			else {
-				throw new EmployeNotFound("Invaild");
+				throw new EmployeNotFound("Invalid");
 			}
 		}catch(SQLException e) {
-			e.printStackTrace();
 			throw new EmployeNotFound(e.getMessage());
 		}
 		
@@ -132,7 +131,6 @@ public class EmployeeDAO implements IntEmployeeDAO{
 				throw new EmployeNotFound("Already appied wait until admin approve");
 			}
 		}catch(SQLException e) {
-			e.printStackTrace();
 			throw new EmployeNotFound(e.getMessage());
 		}
 		

@@ -37,7 +37,7 @@ public class Adminuses {
 		} catch (AdminException e1) {
 			e1.printStackTrace();
 		}
-		System.out.println(log);
+		System.out.println("|   "+log+"      |");
 		
 		if(!log.isEmpty()) {
 			boolean flaggg = true;
@@ -343,10 +343,16 @@ public class Adminuses {
 						break;
 						
 					case 6:
+						System.out.println("☻-------------------------------------☻");
+						System.out.println("|   1 .Direct View Employes List      |");
+						System.out.println("☻-------------------------------------☻");
+						System.out.println("|   2 .View in Sorting order          |");
+						System.out.println("☻-------------------------------------☻");
 						
-						System.out.println("1 .Direct View Employes List");
-						System.out.println("2 .View in Sorting order");
+						System.out.println("+------+");
 						int c6n= Integer.parseInt(in.readLine());
+						System.out.println("+------+");
+						
 						
 						String c6table = "Employes";
 						String c6order = "asc";
@@ -360,15 +366,23 @@ public class Adminuses {
 								arr2 = admin.appliedLeaveList(c6table,c6order,c6colum);
 		
 							}catch(AdminException e) {
-								//e.printStackTrace();
-								System.out.println(e.getMessage());
+								e.printStackTrace();
+								//System.out.println(e.getMessage());
 							}
 							
 						}
 						else if(c6n==2){
 							
-							System.out.println("1 .For salary \n2 .For Joing Date");
+							System.out.println("☻-------------------------------------☻");
+							System.out.println("|   1 .For salary                     |");
+							System.out.println("☻-------------------------------------☻");
+						    System.out.println("|   2 .For Joing Date                 |");
+						    System.out.println("☻-------------------------------------☻");
+						    
+							System.out.println("+------+");
 							int c621 = Integer.parseInt(in.readLine());
+							System.out.println("+------+");
+							
 							if(c621 == 1) {
 								c6colum = "salary";
 							}else if(c621 == 2) {
@@ -377,8 +391,16 @@ public class Adminuses {
 								System.out.println("Invaild Input");
 							}
 							
-							System.out.println("1 .For Acending order \n2 .For Decending order");
+							System.out.println("☻-------------------------------------☻");
+							System.out.println("|   1 .For Acending order             |");
+							System.out.println("☻-------------------------------------☻");
+							System.out.println("|   2 .For Decending order            |");
+							System.out.println("☻-------------------------------------☻");
+							
+							System.out.println("+------+");
 							int c622 = Integer.parseInt(in.readLine());
+							System.out.println("+------+");
+							
 							if(c622 == 1) {
 								c6order = "asc";
 							}else if(c622 == 2) {
@@ -396,17 +418,31 @@ public class Adminuses {
 							}
 						}
 						
-						arr2.forEach(e -> System.out.println(e.toString()));
+						arr2.forEach(e -> {
+							System.out.println("☻---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------☻");
+							System.out.println(e.toString());
+							System.out.println("☻---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------☻");
+							
+							
+						});
 						System.out.println("=============================================");
 						break;
 						
 					case 7:
 						
-						System.out.println("Enter Employee ID");
+						System.out.println("☻-------------------------------------☻");
+						System.out.println("|  Enter Employee ID                  |");
 						int c7id = Integer.parseInt(in.readLine());
 						
-						System.out.println("1 .For Approve /n2 .decline");
+						System.out.println("☻-------------------------------------☻");
+						System.out.println("|   1 .For Approve                    |");
+						System.out.println("☻-------------------------------------☻");
+					    System.out.println("|   2 .decline                        |");
+					    System.out.println("☻-------------------------------------☻");
+					    
+						System.out.println("+------+");
 						int c7a = Integer.parseInt(in.readLine());
+						System.out.println("+------+");
 						
 						String c7ans = "";
 						
@@ -414,13 +450,15 @@ public class Adminuses {
 							c7ans = "Approve";
 						}
 						else if(c7a==2) {
-							c7ans = "decline";
+							c7ans = "Decline";
 						}else {
 							System.out.println("Invaild Input Try Again");
 						}
 						
 					try {
-						System.out.println(admin.leaveReq(c7id, c7ans));
+						System.out.println("☻-------------------------------------☻");
+						System.out.println("|   "+admin.leaveReq(c7id, c7ans)+"   |");
+						System.out.println("☻-------------------------------------☻");
 					} catch (AdminException e2) {
 						e2.printStackTrace();
 					}
@@ -429,14 +467,19 @@ public class Adminuses {
 						
 					case 8:
 						
-						System.out.println("Enter Username");
+						System.out.println("☻-------------------------------------☻");
+						System.out.println("|   Enter Username                    |");
 						String case8username=in.readLine();
-						System.out.println("Enter password");
+						System.out.println("☻-------------------------------------☻");
+						System.out.println("|   Enter password                    |");
 						String case8password=in.readLine();
-						System.out.println("Enter new password");
+						System.out.println("☻-------------------------------------☻");
+						System.out.println("|   Enter new password                |");
 						String case8newpass = in.readLine();
+						System.out.println("☻-------------------------------------☻");
 					try {
-						System.out.println(admin.updatepass(case8newpass, case8username, case8password));
+						System.out.println("|   "+admin.updatepass(case8newpass, case8username, case8password)+"                 |");
+						System.out.println("☻-------------------------------------☻");
 					} catch (AdminException e1) {
 						e1.printStackTrace();
 					}
@@ -444,26 +487,32 @@ public class Adminuses {
 						break;
 						
 					case 9:
-						Admin aa = new Admin();
 						
-						System.out.println("Enter Name of Admin");
+						Admin aa = new Admin();
+						System.out.println("☻-------------------------------------☻");
+						System.out.println("|   Enter Name of Admin               |");
 						String c9name = in.readLine();
+						System.out.println("☻-------------------------------------☻");
 						aa.setName(c9name);
 						
-						System.out.println("Enter Name of Post");
+						System.out.println("|   Enter Name of Post                |");
 						String c9post = in.readLine();
+						System.out.println("☻-------------------------------------☻");
 						aa.setPost(c9post);
 						
-						System.out.println("Enter Username of Employee");
+						System.out.println("|   Enter Username of Employee        |");
 						String c9username = in.readLine();
+						System.out.println("☻-------------------------------------☻");
 						aa.setUsername(c9username);
 						
-						System.out.println("Enter Password of Employee");
+						System.out.println("|   Enter Password of Employee        |");
 						String c9password = in.readLine();
+						System.out.println("☻-------------------------------------☻");
 						aa.setPassword(c9password);
 						
 					try {
-						System.out.println(admin.addAdmin(aa));
+						System.out.println("|   "+admin.addAdmin(aa)+"            |");
+						System.out.println("☻-------------------------------------☻");
 					} catch (AdminException e1) {
 						e1.printStackTrace();
 					}
@@ -473,7 +522,7 @@ public class Adminuses {
 						
 					case 10:
 						
-						System.out.println("Thank You");
+						System.out.println("☻ Thank You ☻");
 						flaggg = false;
 						
 						break;
