@@ -2,11 +2,11 @@ package Com.Method;
 
 public class Admin {
 	
-	int id;
-	String name;
-	String post;
-	String username;
-	String password;
+	private int id;
+	private String name;
+	private String post;
+	private String username;
+	private String password;
 	
 	
 	public Admin() {
@@ -76,8 +76,8 @@ public class Admin {
 
 	@Override
 	public String toString() {
-		return "Admin [id=" + id + ", name=" + name + ", post=" + post + ", username=" + username + ", password="
-				+ password + "]";
+		return "Admin"+'\n'+"Admin_Id | name | post | username | password "+'\n'+id;
+	
 	}
 	
 	

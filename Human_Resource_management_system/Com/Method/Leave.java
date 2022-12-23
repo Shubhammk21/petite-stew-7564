@@ -84,8 +84,40 @@ public class Leave {
 
 	@Override
 	public String toString() {
-		return "Leave [id=" + id + ", name=" + name + ", departmentId=" + departmentId + ", duration=" + duration
-				+ ", startDate=" + startDate + ", endDate=" + endDate + ", leaveReq=" + leaveReq + "]";
+		if(name.length()<20) {
+			while(name.length()<20) {
+				name+=" ";
+			}
+		}
+		String strid= String.valueOf(id);
+		if(id<10) {
+			strid= "000"+strid;
+		}
+		else if(id<100 && id>10) {
+			strid= "00"+strid;
+		}
+		if(id<1000 && id>100) {
+			strid= "0"+strid;
+		}
+		
+		String strdid= String.valueOf(departmentId);
+		if(departmentId<10) {
+			strdid= "000"+strdid;
+		}
+		else if(departmentId<100 && departmentId>10) {
+			strdid= "00"+strdid;
+		}
+		if(departmentId<1000 && departmentId>100) {
+			strdid= "0"+strdid;
+		}
+		String strdura= String.valueOf(duration);
+		if(departmentId<10) {
+			strdura= "0"+strdura;
+		}
+		
+		
+		return "| "+ strid +"        | "+name+" | "+ strdid +"         | "+ strdura +"       | "+startDate+" | "+ endDate +" | "+ leaveReq + "  |";
+		          
 	}
 	
 }
