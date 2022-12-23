@@ -144,34 +144,11 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Employee [id=");
-		builder.append(id);
-		builder.append(", name=");
-		builder.append(name);
-		builder.append(", age=");
-		builder.append(age);
-		builder.append(", email=");
-		builder.append(email);
-		builder.append(", address=");
-		builder.append(address);
-		builder.append(", number=");
-		builder.append(number);
-		builder.append(", salary=");
-		builder.append(salary);
-		builder.append(", dname=");
-		builder.append(dID);
-		builder.append(", username=");
-		builder.append(username);
-		builder.append(", password=");
-		builder.append(password);
-		builder.append(", workingStatus=");
-		builder.append(workingStatus);
-		builder.append(", leaveRequest=");
-		builder.append(leaveRequest);
-		builder.append(", joiningDate=");
-		builder.append(joiningDate);
-		builder.append("]");
-		return builder.toString();
+		return "| EmployeeId=" + id + " | name=" + name + " | age=" + age + " | email=" + email + " | address=" + address
+				+ " | number=" + number + " | salary=" + salary + " | dID=" + dID + " | username=" + username
+				+ " | password=" + password + " | workingStatus=" + workingStatus + " | leaveRequest=" + leaveRequest
+				+ " | joiningDate=" + joiningDate + " |";
 	}
+
+	
 }

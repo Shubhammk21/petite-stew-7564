@@ -223,7 +223,7 @@ public class AdminDAO implements IntAdminDAO {
 			
 			if(x.next()) {
 				String name = x.getString("name");
-				massage = "Welcome Sir "+name+"☻";
+				massage = "Welcome Sir "+name+" ☻";
 			}
 			else {
 				throw new AdminException("Incorrect Username or Password try again");
