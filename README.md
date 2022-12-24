@@ -7,10 +7,13 @@ Build Human resource management system application during the construct week at 
 
 <p><img align="center" src="269-2692712_join-us-human-resource-management-system.png" alt="shubhammk21" /></p>
 
+
+# 👉 [Click here](https://drive.google.com/file/d/1eK_S9c4zF5nzO5xnkcBE5E0Gzd1vwBGE/view?usp=sharing) to go through detail explanation of this application
+
 ER-Diagram
 ---------------
 
-<p><img align="center" src="Human_Resource_management_system\Untitled.png" alt="shubhammk21" /></p>
+<p><img align="center" src="Human_Resource_management_system\Untitled (1).png" alt="shubhammk21" /></p>
 
 
 Features
