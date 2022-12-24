@@ -64,6 +64,9 @@ public class EmployeeUse {
 					String case2newpass = in.readLine();
 					System.out.println("☻-------------------------------------☻");
 				try {
+					
+					// there we call method in classes of Dao package  and printing its output.
+					
 					System.out.println("|   "+mm.updatepass(case2newpass, case2username, case2password)+"                 |");
 					System.out.println("☻-------------------------------------☻");
 				} catch (EmployeNotFound e) {
@@ -90,6 +93,9 @@ public class EmployeeUse {
 					lev.setStartDate(startDate);
 					
 				try {
+					
+					// there we call method in classes of Dao package  and printing its output.
+					
 					System.out.println("☻------------------------------------------------☻");
 					System.out.println("|   "+mm.leaveReq(lev)+" |");
 					System.out.println("☻------------------------------------------------☻");

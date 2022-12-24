@@ -10,7 +10,7 @@ Build Human resource management system application during the construct week at 
 ER-Diagram
 ---------------
 
-<p><img align="center" src="Untitled.png" alt="shubhammk21" /></p>
+<p><img align="center" src="Human_Resource_management_system\Untitled.png" alt="shubhammk21" /></p>
 
 
 Features
@@ -42,29 +42,38 @@ Although its a basic HR Management System made with java and MySQL database, but
 Interface
 ---------------
 
-<p><img align="center" src="Screenshot (333).png" alt="shubhammk21" /></p>
+<p><img align="center" src="Screenshot (341).png" alt="shubhammk21" /></p>
+
+Admin Page
+--------------------
+
+<p><img align="center" src="Screenshot (340).png" alt="shubhammk21" /></p>
 
 
-Dependencies
+Employee
 --------------
- You must have Java JDK 17 or microsoft MySQL
-  for database.
 
-    1. JDK 17
+<p><img align="center" src="Screenshot (343).png" alt="shubhammk21" /></p>
+
 
 Technology used
 -------------------------------
+
+You must have Java JDK 17 or microsoft MySQL
+for database.
 
     1. Java
     2. MySQL database
     3. JDBC
     3. Git & GitHub
 
+
 Lessons Learned
 -----------------------------
 
-  Gain excessive knowledge on application of Java, JDBC and MySQL.
-  Enjoyed the process of learning and creating the application.
+    1. Gain excessive knowledge on application of Java, JDBC and MySQL.
+    2. Enjoyed the process of learning and creating the application.
+
 
 Contributor
 ----------------------------
@@ -73,8 +82,6 @@ Contributor
 
 <a href="https://twitter.com/shubhammk21" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="shubhammk21" height="30" width="40" /></a>
 <a href="https://linkedin.com/in/shubham-singh-47732316b" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="shubham-singh-47732316b" height="30" width="40" /></a>
-<a href="https://fb.com/shubham" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="shubham" height="30" width="40" /></a>
-<a href="https://instagram.com/shubham__singh___01" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="shubham__singh___01" height="30" width="40" /></a>
 <a href="https://www.leetcode.com/shubhammk21" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="shubhammk21" height="30" width="40" /></a>
 </p>
 
