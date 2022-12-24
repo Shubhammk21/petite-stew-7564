@@ -3,6 +3,10 @@
 
 A human resources management system (HRMS) or human resources information system (HRIS) is a form of human resources (HR) software that combines a number of systems and processes to ensure the easy management of human resources, business processes and data. I've Develop this HR Management System in Java for learning purpose using MySql Database.
 
+ER-Diagram
+---------------
+
+<p><img align="center" src="Untitled(1).png" alt="shubhammk21" /></p>
 
 
 Features
@@ -21,12 +25,13 @@ Interface
 
 <p><img align="center" src="Screenshot (333).png" alt="shubhammk21" /></p>
 
+
 Dependencies
 --------------
- You must have Java JDK 1.8 or microsoft MySQL connector for database.
+ You must have Java JDK 17 or microsoft MySQL
+  for database.
 
-    1. mysql-connector-java-5.1.39-bin.jar
-    2. JDK 17
+    1. JDK 17
 
 Built with
 -------------------------------
