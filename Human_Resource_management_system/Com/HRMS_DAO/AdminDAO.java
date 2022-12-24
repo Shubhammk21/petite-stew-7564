@@ -21,7 +21,7 @@ public class AdminDAO implements IntAdminDAO {
 		String massage = "Insert Employes unsuscessful";
 		
 		try (Connection conn = DBUtil.provideConn()){
-			PreparedStatement pr = conn.prepareStatement("insert into Employes(name, age, email, address, "
+			PreparedStatement pr = conn.prepareStatement("insert into Employee(name, age, email, address, "
 					+ "Phone_number, salary, departmentid, username, password, working_status, leave_request, joining_date) "
 					+ "value(?,?,?,?,?,?,?,?,?,?,?,?)");
 			
@@ -101,7 +101,7 @@ public class AdminDAO implements IntAdminDAO {
 		String massage = "Something Wrong try again";
 		
 		try (Connection conn = DBUtil.provideConn()){
-			PreparedStatement pr = conn.prepareStatement("update Employes set departmentId=? where employesid=?");
+			PreparedStatement pr = conn.prepareStatement("update Employee set departmentId=? where employeeid=?");
 		
 			pr.setInt(1, newDId);
 			pr.setInt(2, id);
@@ -122,8 +122,7 @@ public class AdminDAO implements IntAdminDAO {
 	public String leaveReq(int id, String ans) throws AdminException {
 		String massage = "Something wrong try again";
 		try (Connection conn = DBUtil.provideConn()){
-			PreparedStatement pr = conn.prepareStatement("update employes inner join leaves on employes.employesid=leaves.employesid "
-					+ "set employes.leave_request=?,leaves.leave_request=? where employes.employesid=?");
+			PreparedStatement pr = conn.prepareStatement("update employee e inner join leaves l on e.employeeid = l.employeeid set e.leave_request=?,l.leave_request=? where e.employeeid=?;");
 			pr.setString(1, ans);
 			pr.setString(2, ans);
 			pr.setInt(3, id);
@@ -150,13 +149,13 @@ public class AdminDAO implements IntAdminDAO {
 			
 			ResultSet rs = pr.executeQuery();
 			
-			if(table=="Employes") {
+			if(table=="Employee") {
 				boolean flag = true;
 				
 				while(rs.next()) {
 					flag = false;
 		
-					int id = rs.getInt("Employesid");
+					int id = rs.getInt("Employeeid");
 					String name = rs.getString("name");
 					int age = rs.getInt("age");
 					String email = rs.getString("email");
@@ -184,7 +183,7 @@ public class AdminDAO implements IntAdminDAO {
 				while(rs.next()) {
 					flag = false;
 					
-					int id = rs.getInt("Employesid");
+					int id = rs.getInt("Employeeid");
 					String name = rs.getString("name");
 					int did = rs.getInt("departmentid");
 					int dura = rs.getInt("duration");

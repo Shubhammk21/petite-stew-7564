@@ -94,7 +94,7 @@ public class EmployeeUse {
 					System.out.println("|   "+mm.leaveReq(lev)+" |");
 					System.out.println("☻------------------------------------------------☻");
 				} catch (EmployeNotFound e) {
-					e.printStackTrace();
+					System.out.println(e.getMessage());
 				}
 				System.out.println("================================================================");
 					break;

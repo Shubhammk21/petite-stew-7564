@@ -37,13 +37,13 @@ public class Adminuses {
 		} catch (AdminException e1) {
 			e1.printStackTrace();
 		}
-		System.out.println("|   "+log+"      |");
+		System.out.println("|   "+log+"             |");
 		
 		if(!log.isEmpty()) {
 			boolean flaggg = true;
 			while(flaggg){
 				System.out.println("☻-------------------------------------☻");
-				System.out.println("|    1⇒ Insert new Employee           |");
+				System.out.println("|   1⇒ Insert new Employee            |");
 				System.out.println("☻-------------------------------------☻");
 				System.out.println("|   2⇒ Transfer Employee Department   |");
 				System.out.println("☻-------------------------------------☻");
@@ -76,7 +76,7 @@ public class Adminuses {
 						
 						for(int i=1; i<=n; i++) {
 							Employee e = new Employee();
-							System.out.println("|   Employee Number: "+i);
+							System.out.println("|   Employee Number: "+i+"                |");
 							System.out.println("☻-------------------------------------☻");
 							
 							System.out.println("Enter Name of Employee");
@@ -129,7 +129,7 @@ public class Adminuses {
 							e.setWorkingStatus(workingStatus);
 							System.out.println("☻-------------------------------------☻");
 							
-							System.out.println("Enter Joining Date of Employee in yyy-mm-dd format");
+							System.out.println("Enter Joining Date of Employee in yyyy-mm-dd format");
 							String joiningDate = in.readLine();
 							e.setJoiningDate(joiningDate);
 							
@@ -139,16 +139,18 @@ public class Adminuses {
 							
 							System.out.println("========================================");
 							
-							System.out.println("Enter 1 To Confirm Details");
 							System.out.println("☻-------------------------------------☻");
-							System.out.println("Enter 2 Re Enter Employee");
+							System.out.println("|     Enter 1 To Confirm Details      |");
+							System.out.println("☻-------------------------------------☻");
+							System.out.println("|   Enter 2 Re-enter Employee         |");
+							System.out.println("☻-------------------------------------☻");
 							int confirm = Integer.parseInt(in.readLine());
 							
 							if(confirm == 1) {
 								try {
 									System.out.println(admin.insertEmpl(e));
 								} catch (AdminException e1) {
-									e1.printStackTrace();
+									System.out.println(e1.getMessage());
 								}
 							}else if(confirm==2){
 								i=i-1;
@@ -172,7 +174,7 @@ public class Adminuses {
 					try {
 						System.out.println(admin.transDapart(c2id, c2did));
 					} catch (AdminException e3) {
-						e3.printStackTrace();
+						System.out.println(e3.getMessage());
 					}
 						
 						System.out.println("=============================================");
@@ -197,7 +199,7 @@ public class Adminuses {
 					try {
 						System.out.println(admin.insertDepart(depart));
 					} catch (AdminException e2) {
-						e2.printStackTrace();
+						System.out.println(e2.getMessage());
 					}
 						
 						System.out.println("=============================================");
@@ -250,7 +252,7 @@ public class Adminuses {
 					try {
 						System.out.println(admin.updateDepart(c4value, c4id, case4depart));
 					} catch (AdminException e1) {
-						e1.printStackTrace();
+						System.out.println(e1.getMessage());
 					}
 						System.out.println("=============================================");
 						break;
@@ -278,8 +280,8 @@ public class Adminuses {
 								arr = admin.appliedLeaveList(c5table,c5order,c5colum);
 		
 							}catch(AdminException e) {
-								e.printStackTrace();
-								//System.out.println(e.getMessage());
+								//e.printStackTrace();
+								System.out.println(e.getMessage());
 							}
 							
 						}
@@ -325,8 +327,8 @@ public class Adminuses {
 								arr = admin.appliedLeaveList(c5table,c5order,c5colum);
 		
 							}catch(AdminException e) {
-								e.printStackTrace();
-								//System.out.println(e.getMessage());
+								//e.printStackTrace();
+								System.out.println(e.getMessage());
 							}
 						}
 						System.out.println("☻---------------------------------------------------------------------------------------------------☻");
@@ -354,7 +356,7 @@ public class Adminuses {
 						System.out.println("+------+");
 						
 						
-						String c6table = "Employes";
+						String c6table = "Employee";
 						String c6order = "asc";
 						String c6colum = "name";
 						
@@ -366,8 +368,8 @@ public class Adminuses {
 								arr2 = admin.appliedLeaveList(c6table,c6order,c6colum);
 		
 							}catch(AdminException e) {
-								e.printStackTrace();
-								//System.out.println(e.getMessage());
+								//e.printStackTrace();
+								System.out.println(e.getMessage());
 							}
 							
 						}
@@ -413,8 +415,8 @@ public class Adminuses {
 								arr2 = admin.appliedLeaveList(c6table,c6order,c6colum);
 		
 							}catch(AdminException e) {
-								e.printStackTrace();
-								//System.out.println(e.getMessage());
+								//e.printStackTrace();
+								System.out.println(e.getMessage());
 							}
 						}
 						
@@ -460,7 +462,7 @@ public class Adminuses {
 						System.out.println("|   "+admin.leaveReq(c7id, c7ans)+"   |");
 						System.out.println("☻-------------------------------------☻");
 					} catch (AdminException e2) {
-						e2.printStackTrace();
+						System.out.println(e2.getMessage());
 					}
 						System.out.println("=============================================");
 						break;
@@ -481,7 +483,7 @@ public class Adminuses {
 						System.out.println("|   "+admin.updatepass(case8newpass, case8username, case8password)+"                 |");
 						System.out.println("☻-------------------------------------☻");
 					} catch (AdminException e1) {
-						e1.printStackTrace();
+						System.out.println(e1.getMessage());
 					}
 						System.out.println("=============================================");
 						break;
@@ -514,7 +516,7 @@ public class Adminuses {
 						System.out.println("|   "+admin.addAdmin(aa)+"            |");
 						System.out.println("☻-------------------------------------☻");
 					} catch (AdminException e1) {
-						e1.printStackTrace();
+						System.out.println(e1.getMessage());
 					}
 						
 						System.out.println("=============================================");
