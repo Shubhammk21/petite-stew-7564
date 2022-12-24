@@ -3,6 +3,14 @@ package Com.UseCases;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+* This is a Main Page 
+* 
+*If you click 1 than he divert to Admin page.
+* 
+*If you click 1 than he divert to Employee page.
+*
+**/
 public class Main {
 	
 	static {
@@ -29,11 +37,6 @@ public class Main {
 		int x = Integer.parseInt(in.readLine());
 		System.out.println("+------+");
 		
-		try {
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
 		switch(x) {
 		
 			case 1:
