@@ -25,17 +25,19 @@ Although its a basic HR Management System made with java and MySQL database, but
     6. Many more.
 
 <h4>Role of Admin:</h4>
-    Admin can add new Departments.
-    Admin can view and update the Departments.
-    Admin can register new Employees and give them their password.
-    Admin can also transfer them to other departments.
-    Admin can grant or deny employee leave request and many more.
+
+    1. Admin can add new Departments.
+    2. Admin can view and update the Departments.
+    3. Admin can register new Employees and give them their password.
+    4. Admin can also transfer them to other departments.
+    5. Admin can grant or deny employee leave request and many more.
 
 
  <h4>Role of Employee:</h4>
-    Employee can view and update his profile.
-    Employee can also change his password.
-    Employee can also request for leaves.
+ 
+    1. Employee can view and update his profile.
+    2. Employee can also change his password.
+    3. Employee can also request for leaves.
 
 Interface
 ---------------
