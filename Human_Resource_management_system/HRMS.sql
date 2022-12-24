@@ -1,48 +1,47 @@
-create database  Unit_5_HRMS;
-use Unit_5_HRMS;
-
-
-create table department(
-    departmentId int primary key,
-    department_name varchar(20) not null,
-    location varchar(60)
+CREATE TABLE `Department` (
+  `DepartmentId` int PRIMARY KEY,
+  `Department_Name` varchar(20) NOT NULL,
+  `Location` varchar(60)
 );
 
-create table Admin(
-    id int primary key auto_increment unique,
-    name varchar(30),
-    post varchar(30),
-    username varchar(30) not null,
-    password varchar(30) not null
+CREATE TABLE `Admin` (
+  `Id` int UNIQUE PRIMARY KEY AUTO_INCREMENT,
+  `Name` varchar(30),
+  `Post` varchar(30),
+  `Username` varchar(30) NOT NULL,
+  `Password` varchar(30) NOT NULL
 );
 
-insert into admin(name,post,username,password) values('Shubham singh','CEO','shubham','mp21mk');
-
-create table Employes(
-    EmployesId int Primary key auto_increment,
-    name varchar(30),
-    age int,
-    email varchar(40),
-    address varchar(60),
-    Phone_number bigint(10),
-    salary int,
-    departmentid int,
-    username varchar(30),
-    password varchar(20),
-    working_status varchar(40),
-    leave_request varchar(20),
-    joining_date date,
-    foreign key(departmentid) references department(departmentid)
+CREATE TABLE `Employee` (
+  `EmployeeId` int PRIMARY KEY AUTO_INCREMENT,
+  `Name` varchar(30),
+  `Age` int,
+  `Email` varchar(40),
+  `Address` varchar(60),
+  `Phone_Number` bigint(10),
+  `Salary` int,
+  `DepartmentId` int,
+  `Username` varchar(30),
+  `Password` varchar(20),
+  `Working_Status` varchar(40),
+  `Leave_Request` varchar(20),
+  `Joining_Date` date
 );
 
-create table leaves(
-    EmployesId int unique not null,
-    name varchar(30),
-    departmentid int,
-    Duration int,
-    startdate date,
-    enddate date,
-    leave_request varchar(20),
-    foreign key(EmployesId) references Employes(EmployesId),
-    foreign key(departmentid) references department(departmentid)
+CREATE TABLE `Leaves` (
+  `EmployeeId` int UNIQUE NOT NULL,
+  `Name` varchar(30),
+  `DepartmentId` int,
+  `Duration` int,
+  `StartDate` date,
+  `EndDate` date,
+  `Leave_Request` varchar(20)
 );
+
+ALTER TABLE `Employee` ADD FOREIGN KEY (`DepartmentId`) REFERENCES `Department` (`DepartmentId`);
+
+ALTER TABLE `Leaves` ADD FOREIGN KEY (`EmployeeId`) REFERENCES `Employee` (`EmployeeId`);
+
+ALTER TABLE `Leaves` ADD FOREIGN KEY (`DepartmentId`) REFERENCES `Department` (`DepartmentId`);
+
+insert into admin(name,post,username,password) values('Shubham singh','Manager','shubham','mp21mk');
