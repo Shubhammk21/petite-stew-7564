@@ -1,7 +1,11 @@
 
 # HR-Management-System-in-Java
 
-A human resources management system (HRMS) or human resources information system (HRIS) is a form of human resources (HR) software that combines a number of systems and processes to ensure the easy management of human resources, business processes and data. I've Develop this HR Management System in Java for learning purpose using MySql Database.
+A human resources management system (HRMS) is a form of human resources (HR) software that combines a number of systems and processes to ensure the easy management of human resources, business processes and data. I've Developed this HR Management System in Java using MySql Database, JDBC, Java.
+
+Build Human resource management system application during the construct week at Masai School. Completed the project within five days
+
+<p><img align="center" src="269-2692712_join-us-human-resource-management-system.png" alt="shubhammk21" /></p>
 
 ER-Diagram
 ---------------
@@ -46,8 +50,28 @@ Dependencies
 
     1. JDK 17
 
-Built with
+Technology used
 -------------------------------
 
     1. Java
     2. MySQL database
+    3. JDBC
+    3. Git & GitHub
+
+Lessons Learned
+-----------------------------
+
+  Gain excessive knowledge on application of Java, JDBC and MySQL.
+  Enjoyed the process of learning and creating the application.
+
+<h3>Contributor</h3>
+----------------------------
+<h4>Shubham Singh</h4>
+
+<a href="https://twitter.com/shubhammk21" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="shubhammk21" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/shubham-singh-47732316b" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="shubham-singh-47732316b" height="30" width="40" /></a>
+<a href="https://fb.com/shubham" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="shubham" height="30" width="40" /></a>
+<a href="https://instagram.com/shubham__singh___01" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="shubham__singh___01" height="30" width="40" /></a>
+<a href="https://www.leetcode.com/shubhammk21" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="shubhammk21" height="30" width="40" /></a>
+</p>
+
